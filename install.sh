@@ -63,7 +63,13 @@ printf "\n$BLUE[*] Replace ~/.shell.sh with $OS version$CLEAR"
 cp $DIR/$OS/shell.sh $HOME/.shell.sh
 
 printf "\n$BLUE[*] Add bin directory to home$CLEAR"
-if [[ ! -d $HOME/bin || $IGNORE == true ]]; then
+if [ ! -d $HOME/bin ]; then
+    cp -r $DIR/bin $HOME/bin
+    printf "$GREEN[+] success $CLEAR"
+    printf "$BLUE[*] copy OS specific bin$CLEAR"
+    cp -r $DIR/$OS/bin/* $HOME/bin
+elif [ $IGNORE == true ]; then
+    rm -rf $HOME/bin
     cp -r $DIR/bin $HOME/bin
     printf "$GREEN[+] success $CLEAR"
     printf "$BLUE[*] copy OS specific bin$CLEAR"

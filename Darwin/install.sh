@@ -30,3 +30,10 @@ if [[ $(which htop) == "" || $IGNORE == true ]]; then
 else
   printf "$YELLOW[!] WARNING htop already installed$CLEAR"
 fi
+
+printf "\n$BLUE[*] Install wget$CLEAR"
+if [[ $(which wget) == "" || $IGNORE == true ]]; then
+    brew install wget
+else
+  printf "$YELLOW[!] WARNING wget already installed$CLEAR"
+fi
