@@ -60,7 +60,9 @@ printf "\n$BLUE[*] Replace ~/.zshrc$CLEAR"
 cp $DIR/zshrc $HOME/.zshrc
 
 printf "\n$BLUE[*] Replace ~/.shell.sh with $OS version$CLEAR"
-cp $DIR/$OS/shell.sh $HOME/.shell.sh
+rm $HOME/.shell.sh
+cat $DIR/shell.sh > $HOME/.shell.sh
+cat $DIR/$OS/shell.sh >> $HOME/.shell.sh
 
 printf "\n$BLUE[*] Add bin directory to home$CLEAR"
 if [ ! -d $HOME/bin ]; then
