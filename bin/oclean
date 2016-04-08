@@ -1,0 +1,5 @@
+#! /bin/sh
+rm *.cmi &> /dev/null
+rm *.cmx &> /dev/null
+rm *.cmo &> /dev/null
+rm *.o &> /dev/null
