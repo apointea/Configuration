@@ -1,4 +1,5 @@
 PATH=~/.brew/bin:$PATH
+PATH=/Applications/Atom.app/Contents/MacOS:$PATH
 
 if [ ! -d /tmp/brew_cache ]; then
     mkdir /tmp/brew_cache
