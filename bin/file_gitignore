@@ -13,4 +13,5 @@ echo "
 **/*.cmi
 **/*.cmx
 **/*.cmo
+**/__pycache__/**
 " > .gitignore
