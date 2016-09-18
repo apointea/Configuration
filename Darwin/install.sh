@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # COLORS
 RED="\033[31m"
@@ -12,28 +12,12 @@ CLEAR="\033[0m\n"
 # SCRIPT DIR
 SUB_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# IGNORE MOD
-IGNORE=false
-if [[ $# == 1 && $1 == "-i" ]]; then
-    IGNORE=true
-fi
-
-# FORCE MOD
-FORCE=false
-if [[ $# == 1 && $1 == "-f" ]]; then
-    FORCE=true
-fi
-
-printf "\n$BLUE[*] Install htop$CLEAR"
 if [[ $(which htop) == "" || $IGNORE == true ]]; then
+	printf "\n$BLUE[*] Install htop$CLEAR"
     brew install htop
-else
-  printf "$YELLOW[!] WARNING htop already installed$CLEAR"
 fi
 
-printf "\n$BLUE[*] Install wget$CLEAR"
 if [[ $(which wget) == "" || $IGNORE == true ]]; then
+	printf "\n$BLUE[*] Install wget$CLEAR"
     brew install wget
-else
-  printf "$YELLOW[!] WARNING wget already installed$CLEAR"
 fi

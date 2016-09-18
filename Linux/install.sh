@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # COLORS
 RED="\033[31m"
@@ -12,35 +12,22 @@ CLEAR="\033[0m\n"
 # SCRIPT DIR
 SUB_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# IGNORE MOD
-IGNORE=false
-if [[ $# == 1 && $1 == "-i" ]]; then
-    IGNORE=true
-fi
-
-# FORCE MOD
-FORCE=false
-if [[ $# == 1 && $1 == "-f" ]]; then
-    FORCE=true
-fi
-
-printf "\n$BLUE[*] Install vim$CLEAR"
 if [[ $(which vim) == "" || $IGNORE == true ]]; then
-    sudo apt-get install vim
-else
-  printf "$YELLOW[!] WARNING vim already installed$CLEAR"
+	printf "\n$BLUE[*] Install vim$CLEAR"
+	sudo apt-get install vim
 fi
 
-printf "\n$BLUE[*] Install wget$CLEAR"
 if [[ $(which wget) == "" || $IGNORE == true ]]; then
-    sudo apt-get install wget
-else
-  printf "$YELLOW[!] WARNING wget already installed$CLEAR"
+	printf "\n$BLUE[*] Install wget$CLEAR"
+	sudo apt-get install wget
 fi
 
-printf "$BLUE[*] Install zsh$CLEAR"
 if [[ $(which zsh) == "" || $IGNORE == true ]]; then
-    sudo apt-get install zsh
-else
-  printf "$YELLOW[!] WARNING zsh already installed$CLEAR"
+	printf "$BLUE[*] Install zsh$CLEAR"
+	sudo apt-get install zsh
+fi
+
+if [[ $(which curl) == "" || $IGNORE == true ]]; then
+	printf "\n$BLUE[*] Install curl$CLEAR"
+	sudo apt-get install curl
 fi

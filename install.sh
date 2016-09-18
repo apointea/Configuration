@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 # COLORS
 RED="\033[0;31m"
@@ -21,13 +21,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # IGNORE MOD
 IGNORE=false
 if [[ $# == 1 && ($1 == "-i" || $2 == "-i") ]]; then
-    IGNORE=true
-fi
-
-# FORCE MOD
-FORCE=false
-if [[ $# == 1 && $1 == "-f" ]]; then
-    FORCE=true
+	IGNORE=true
 fi
 
 printf "\n$MAGENTA----- OS specific install -----$CLEAR"
@@ -35,31 +29,31 @@ OS="`uname`"
 printf "\n$GREEN[+] Os detected : $OS$CLEAR"
 case $OS in
   'Linux') #LINUX
-    source $DIR/$OS/install.sh
-    ;;
+	source $DIR/$OS/install.sh
+	;;
   'Darwin') #MAC
-    source $DIR/$OS/install.sh
-    ;;
+	source $DIR/$OS/install.sh
+	;;
   *)
-    printf  "$YELLOW[!] no specific configuration for this os$CLEAR"
-    ;;
+	printf  "$YELLOW[!] no specific configuration for this os$CLEAR"
+	;;
 esac
 
 printf "\n$MAGENTA----- General install -----$CLEAR"
 
 printf "\n$BLUE[*] Install oh-my-zsh$CLEAR"
 if [[ ! -d $HOME/.oh-my-zsh || $IGNORE == true ]]; then
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 else
-    printf "$YELLOW[!] WARNING oh-my-zsh already installed$CLEAR"
+	printf "$YELLOW[!] WARNING oh-my-zsh already installed$CLEAR"
 fi
 
 printf "\n$BLUE[*] Add custom.zsh-theme$CLEAR"
-if [[ -d $HOME/.oh-my-zsh/themes/ || $FORCE == true ]]; then
-    cp $DIR/custom.zsh-theme $HOME/.oh-my-zsh/themes/
-    printf "$GREEN[+] success $CLEAR"
+if [[ -d $HOME/.oh-my-zsh/themes/ || $IGNORE == true ]]; then
+	cp $DIR/custom.zsh-theme $HOME/.oh-my-zsh/themes/
+	printf "$GREEN[+] success $CLEAR"
 else
-    printf "$RED[-] ERROR no ~/.oh-my-zsh/themes/ directory $CLEAR"
+	printf "$RED[-] ERROR no ~/.oh-my-zsh/themes/ directory $CLEAR"
 fi
 
 printf "\n$BLUE[*] Replace ~/.zshrc$CLEAR"
@@ -72,16 +66,16 @@ cat $DIR/$OS/shell.sh >> $HOME/.shell.sh
 
 printf "\n$BLUE[*] Add bin directory to home$CLEAR"
 if [ ! -d $HOME/bin ]; then
-    cp -r $DIR/bin $HOME/bin
-    printf "$GREEN[+] success $CLEAR"
-    printf "$BLUE[*] copy OS specific bin$CLEAR"
-    cp -r $DIR/$OS/bin/* $HOME/bin
+	cp -r $DIR/bin $HOME/bin
+	printf "$GREEN[+] success $CLEAR"
+	printf "$BLUE[*] copy OS specific bin$CLEAR"
+	cp -r $DIR/$OS/bin/* $HOME/bin
 elif [ $IGNORE == true ]; then
-    rm -rf $HOME/bin
-    cp -r $DIR/bin $HOME/bin
-    printf "$GREEN[+] success $CLEAR"
-    printf "$BLUE[*] copy OS specific bin$CLEAR"
-    cp -r $DIR/$OS/bin/* $HOME/bin
+	rm -rf $HOME/bin
+	cp -r $DIR/bin $HOME/bin
+	printf "$GREEN[+] success $CLEAR"
+	printf "$BLUE[*] copy OS specific bin$CLEAR"
+	cp -r $DIR/$OS/bin/* $HOME/bin
 else
-    printf "$YELLOW[!] WARNING ~/bin directory already exist$CLEAR"
+	printf "$YELLOW[!] WARNING ~/bin directory already exist$CLEAR"
 fi
