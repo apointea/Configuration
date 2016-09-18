@@ -79,3 +79,6 @@ elif [ $IGNORE == true ]; then
 else
 	printf "$YELLOW[!] WARNING ~/bin directory already exist$CLEAR"
 fi
+
+printf "\n$BLUE[*] Set zsh as default shell$CLEAR"
+chsh -s `which zsh`
