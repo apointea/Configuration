@@ -6,4 +6,4 @@ alias vi="vim"
 alias gccw="gcc -Wall -Werror -Wextra"
 alias g++w="g++ -Wall -Werror -Wextra"
 
-PATH=~/bin:$PATH
+export PATH=~/bin:$PATH
