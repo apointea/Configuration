@@ -3,10 +3,17 @@
 echo "
 # --------- MISCELLANEOUS --------- #
 **/a.out
+**/.idea
 
 # --------- BULLSHIT --------- #
 **/.DS_Store
 **/._.DS_Store
+
+# --------- PACKAGES --------- #
+**/node_modules
+
+# --------- LOGS --------- #
+**/npm-debug.log
 
 # --------- OBJECTS --------- #
 **/*.o
