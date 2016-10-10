@@ -6,4 +6,5 @@ alias vi="vim"
 alias gccw="gcc -Wall -Werror -Wextra"
 alias g++w="g++ -Wall -Werror -Wextra"
 
+export NODE_ENV=development
 export PATH=~/bin:$PATH
