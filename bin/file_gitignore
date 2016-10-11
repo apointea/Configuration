@@ -5,9 +5,10 @@ echo "
 **/a.out
 **/.idea
 
-# --------- BULLSHIT --------- #
+# --------- TMP --------- #
 **/.DS_Store
 **/._.DS_Store
+**/.*.swp
 
 # --------- PACKAGES --------- #
 **/node_modules
