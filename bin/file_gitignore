@@ -1,25 +1,30 @@
 #! /bin/sh
 
 echo "
-# --------- MISCELLANEOUS --------- #
+
+# ---- C++/C/ASM ---- #
 **/a.out
-**/.idea
-
-# --------- TMP --------- #
-**/.DS_Store
-**/._.DS_Store
-**/.*.swp
-
-# --------- PACKAGES --------- #
-**/node_modules
-
-# --------- LOGS --------- #
-**/npm-debug.log
-
-# --------- OBJECTS --------- #
 **/*.o
+
+# ---- Python ---- #
+**/*.pyc
+**/__pycache__/**
+
+# ---- Ocaml ---- #
 **/*.cmi
 **/*.cmx
 **/*.cmo
-**/__pycache__/**
+
+# ---- Javascript / NodeJS ---- #
+**/node_modules
+**/npm-debug.log
+
+# ---- Editors ---- #
+**/.*.swp
+**/.idea
+
+# ---- MAC ---- #
+**/.DS_Store
+**/._.DS_Store
+
 " > .gitignore
