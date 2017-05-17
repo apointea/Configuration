@@ -1,0 +1,21 @@
+# @Author: Antoine Pointeau <kalif>
+# @Date:   2016-06-16T21:21:47+02:00
+# @Email:  web.pointeau@gmail.com
+# @Filename: zshrc
+# @Last modified by:   kalif
+# @Last modified time: 2017-05-18T00:19:03+02:00
+
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="custom"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+alias vim="vim -O"
+alias vi="vim"
+alias gccw="gcc -Wall -Werror -Wextra"
+alias g++w="g++ -Wall -Werror -Wextra"
+
+export PATH=~/sbin:$PATH
