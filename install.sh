@@ -5,7 +5,7 @@
 # @Email:  web.pointeau@gmail.com
 # @Filename: install.sh
 # @Last modified by:   kalif
-# @Last modified time: 2017-05-18T00:23:45+02:00
+# @Last modified time: 2017-05-18T01:10:27+02:00
 
 # COLORS
 RED="\033[0;31m"
@@ -82,4 +82,5 @@ cp $DIR/res/custom.zsh-theme $HOME/.oh-my-zsh/themes/
 printf "$BLUE[*] Replace zshrc$CLEAR"
 cp $DIR/res/zshrc $HOME/.zshrc
 printf "$BLUE[*] Replace default shell$CLEAR"
-chsh -s `which zsh`
+cp -r $DIR/sbin $HOME/sbin
+chsh -s /bin/zsh
