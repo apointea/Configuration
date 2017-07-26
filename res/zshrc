@@ -3,7 +3,7 @@
 # @Email:  web.pointeau@gmail.com
 # @Filename: zshrc
 # @Last modified by:   kalif
-# @Last modified time: 2017-05-18T00:19:03+02:00
+# @Last modified time: 2017-07-27T01:25:54+02:00
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="custom"
